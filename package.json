@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna exec npm install",
+    "publish": "lerna publish --force-publish",
+    "test": "lerna run test",
+    "ds": "lerna --scope=@wibbly-storm/storybook-native",
+    "postinstall": "cd ./packages/storybook-native && expo-yarn-workspaces postinstall"
+  },
+  "dependencies": {
+    "metro-config": "^0.56.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "lerna": "^4.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/**/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/expo",
+      "**/expo/**"
+    ]
+  }
+}
