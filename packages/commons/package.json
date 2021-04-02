@@ -39,7 +39,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "directory": "dist"
   },
   "workspaces": {
     "nohoist": [
