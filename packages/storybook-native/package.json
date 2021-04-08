@@ -1,14 +1,14 @@
 {
   "name": "@wibbly-storm/storybook-native",
   "main": "node_modules/expo/AppEntry.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "start": "expo start",
     "android": "./emulator.sh",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "storybook": "./stories.sh & yarn android",
+    "storybook": "./stories.sh",
     "build-storybook": "build-storybook",
     "test": "jest --watchAll"
   },
@@ -22,8 +22,8 @@
     ]
   },
   "dependencies": {
-    "@wibbly-storm/commons": "^0.0.2",
-    "@wibbly-storm/components": "^0.0.2",
+    "@wibbly-storm/commons": "workspace:*",
+    "@wibbly-storm/components": "workspace:*",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@expo/metro-config": "^0.1.60",
     "@storybook/addon-actions": "^5.3",
     "@storybook/addon-knobs": "^5.3",
     "@storybook/addon-links": "^5.3",
@@ -51,10 +52,8 @@
   "publishConfig": {
     "directory": "dist"
   },
-  "workspaces": {
-    "nohoist": [
-      "**"
-    ]
+  "installConfig": {
+    "hoistingLimits": "none"
   },
   "private": true
 }

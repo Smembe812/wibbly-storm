@@ -2,28 +2,28 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna exec npm install",
     "publish": "lerna publish --force-publish",
     "test": "lerna run test",
     "ds": "lerna --scope=@wibbly-storm/storybook-native",
-    "postinstall": "cd ./packages/storybook-native && expo-yarn-workspaces postinstall"
+    "clean": "rm -rf ./packages/*/node_modules && rm -rf node_modules",
+    "clean-locks": "rm -rf ./packages/*/yarn.lock && rm -rf yarn.lock",
+    "reset": "yarn clean && yarn clean-locks && lerna bootstrap"
   },
   "dependencies": {
-    "metro-config": "^0.56.0"
+    "metro-config": "^0.53.0"
   },
   "devDependencies": {
     "jest": "^26.6.3",
     "lerna": "^4.0.0"
   },
-  "workspaces": {
-    "packages": [
-      "packages/**/*"
-    ],
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/expo",
-      "**/expo/**"
-    ]
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "installConfig": {
+    "hoistingLimits": "dependencies",
+    "nodeLinker": "node-modules"
   }
 }

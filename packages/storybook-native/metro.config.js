@@ -6,19 +6,17 @@
  */
 const path = require('path');
 const watchFolders = [
-  //Relative path to packages directory
-  path.resolve(__dirname + '/..'),
-  path.resolve(__dirname + '/../../node_modules')
+  path.resolve(__dirname + '/..'), //Relative path to packages directory
 ];
-module.exports = {
-  projectRoot: path.resolve(__dirname+"../.."),
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
-  },
-  watchFolders
+
+const { getDefaultConfig } = require('@expo/metro-config');
+
+const defaultConfig = getDefaultConfig(__dirname);
+
+module.exports = async () => {
+    const config = {
+        ...defaultConfig,
+        watchFolders
+    }
+    return config
 };
