@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 // import PropTypes from 'prop-types';
 import {
     TouchableHighlight,
@@ -6,7 +6,13 @@ import {
     Text
 } from 'react-native';
 
-export const Button = ({children, onPress}) => {
+
+interface Button {
+    children: ReactNode
+    onPress(): void
+}
+
+export const Button = ({children, onPress} : Button) => {
    return (
     <TouchableHighlight onPress={onPress} style={styles.button}>
         {children}
