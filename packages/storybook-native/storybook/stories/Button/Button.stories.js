@@ -3,8 +3,8 @@ import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 import { Text } from 'react-native';
-// import Button from './';
-import {Button} from "@wibbly-storm/commons/components/Button"
+import Button from './';
+// import {Button} from "@wibbly-storm/commons/components/Button"
 import CenterView from '../CenterView';
 
 storiesOf('Button', module)
@@ -13,7 +13,7 @@ storiesOf('Button', module)
     // <Button onPress={action('clicked-text')}>
     //   <Text>{text('Button text', 'Hello Button')}</Text>
     // </Button>
-    <Button>
+    <Button onPress={()=>console.log("open")}>
       <Text>Open</Text>
     </Button>
   ))

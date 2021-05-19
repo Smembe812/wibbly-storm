@@ -16,7 +16,14 @@ const defaultConfig = getDefaultConfig(__dirname);
 module.exports = async () => {
     const config = {
         ...defaultConfig,
-        watchFolders
+        watchFolders,
+        reporter: {
+          update: () => {}
+        },
+        resolver: {
+          ...defaultConfig.resolver,
+          sourceExts: ["js", "ts", "jsx", "tsx", "json"]
+        }
     }
     return config
 };

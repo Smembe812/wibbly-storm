@@ -1,7 +1,8 @@
 {
   "name": "@wibbly-storm/storybook-native",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./node_modules/expo/AppEntry.js",
   "version": "0.0.3",
+  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "./emulator.sh",
@@ -12,6 +13,14 @@
     "build-storybook": "build-storybook",
     "test": "jest --watchAll"
   },
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
@@ -23,7 +32,6 @@
   },
   "dependencies": {
     "@wibbly-storm/commons": "workspace:*",
-    "@wibbly-storm/components": "workspace:*",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
@@ -33,19 +41,24 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.13.10",
     "@expo/metro-config": "^0.1.60",
+    "@expo/webpack-config": "^0.12.64",
+    "@react-native-community/async-storage": "^1.12.1",
     "@storybook/addon-actions": "^5.3",
     "@storybook/addon-knobs": "^5.3",
     "@storybook/addon-links": "^5.3",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/addon-storyshots": "^6.1.21",
+    "@storybook/cli": "^6.2.8",
     "@storybook/react-native": "^5.3.25",
     "@storybook/react-native-server": "^5.3.23",
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
-    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-preset-expo": "^8.3.0",
     "jest-expo": "~40.0.0",
     "typescript": "~4.0.0"
   },
@@ -54,6 +67,5 @@
   },
   "installConfig": {
     "hoistingLimits": "none"
-  },
-  "private": true
+  }
 }

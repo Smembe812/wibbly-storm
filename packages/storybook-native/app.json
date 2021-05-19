@@ -29,7 +29,8 @@
       "favicon": "./assets/favicon.png"
     },
     "packagerOpts": {
-      "config": "metro.config.js"
+      "config": "metro.config.js",
+      "sourceExts": [ "js","jsx","svg","ts","tsx"]
     }
   }
 }
